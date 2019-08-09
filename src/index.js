@@ -116,6 +116,34 @@ function optimizedImage() {
   );
 }
 
+function grinningPenguins() {
+  // thanks framer-motion for making it easy to animate emojis!
+  return (
+    <motion.div
+      className="penguin"
+      aria-label="grinning penguins"
+      role="img"
+      animate={{}}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut"
+      }}
+      whileHover={{ scale: 2.5 }}
+      whileTap={{
+        rotate: [0, -5, 5, 0],
+        y: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+      }}
+      style={{
+        display: "inline"
+      }}
+    >
+      <span role="img" aria-label="an animated line of grinning penguins">
+        😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁
+      </span>
+    </motion.div>
+  );
+}
+
 const getPosition = el => {
   let rect = {
     top: 0,
@@ -219,28 +247,7 @@ const App = () => {
           rel="stylesheet"
         />
 
-        <motion.div
-          className="penguin"
-          aria-label="grinning penguins"
-          role="img"
-          animate={{}}
-          transition={{
-            duration: 0.5,
-            ease: "easeInOut"
-          }}
-          whileHover={{ scale: 2.5 }}
-          whileTap={{
-            rotate: [0, -5, 5, 0],
-            y: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
-          }}
-          style={{
-            display: "inline"
-          }}
-        >
-          <span role="img" aria-label="an animated line of grinning penguins">
-            😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁
-          </span>
-        </motion.div>
+        {grinningPenguins()}
 
         <h1>
           <span role="img" aria-label="grin emoji">
@@ -289,6 +296,7 @@ const App = () => {
         >
           {optimizedImage()}
         </div>
+        {grinningPenguins()}
       </div>
 
       {/* modal */}
@@ -315,7 +323,7 @@ const App = () => {
             /* repeat image with different style for lightbox */
           }}
         >
-          {optimizedImage}
+          {optimizedImage()}
         </animated.div>
         <p
           style={{

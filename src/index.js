@@ -10,6 +10,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SplitText from "react-pose-text";
 import { animated, useSpring } from "react-spring";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 import "./styles.css";
 
@@ -218,6 +219,29 @@ const App = () => {
           rel="stylesheet"
         />
 
+        <motion.div
+          className="penguin"
+          aria-label="grinning penguins"
+          role="img"
+          animate={{}}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut"
+          }}
+          whileHover={{ scale: 2.5 }}
+          whileTap={{
+            rotate: [0, -5, 5, 0],
+            y: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+          }}
+          style={{
+            display: "inline"
+          }}
+        >
+          <span role="img" aria-label="an animated line of grinning penguins">
+            😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁🐧😁
+          </span>
+        </motion.div>
+
         <h1>
           <span role="img" aria-label="grin emoji">
             😁
@@ -226,8 +250,9 @@ const App = () => {
             Cloudinary Photo Lightbox Demo by djD-REK
           </SplitText>
         </h1>
+
         <h4>
-          <span role="img" aria-label="grin emoji">
+          <span role="img" aria-label="Penguin">
             😁
           </span>{" "}
           <SplitText initialPose="exit" pose="enter" charPoses={charPosesH4}>
@@ -245,8 +270,8 @@ const App = () => {
           </SplitText>
         </h3>
         <h2>
-          <span role="img" aria-label="grin emoji">
-            😁
+          <span role="img" aria-label="Penguin">
+            🐧
           </span>{" "}
           <SplitText initialPose="exit" pose="enter" charPoses={charPosesH3}>
             Click on image to open lightbox ⇓⇓⇓
